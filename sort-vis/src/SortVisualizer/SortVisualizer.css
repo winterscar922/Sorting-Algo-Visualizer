@@ -1,0 +1,115 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: rgb(60, 115, 163);
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.bars {
+  display: inline-block;
+  margin-left: 1px;
+  margin-right: 1px;
+  width: 4vh;
+  box-sizing: border-box;
+  /* transition: 0.1s; */
+}
+
+.buttons {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+.btns {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.btns:hover,
+.btns:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.fifth {
+  border-color: #cdbdd3;
+  border-radius: 0;
+  color: #8e44ad;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.fifth:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #9b45e4;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.fifth:hover {
+  color: #fff;
+}
+.fifth:hover:after {
+  width: 110%;
+}
+
+.para {
+  text-align: left;
+  color: white;
+  display: inline-block;
+}
+
+.intro {
+  color: rgb(18, 32, 81);
+  padding: 50px;
+}
+
+.categories {
+  color: white;
+  text-align: left;
+}
+
+.points {
+  display: list-item;
+}
+
+.heading {
+  padding-bottom: 1rem;
+}
