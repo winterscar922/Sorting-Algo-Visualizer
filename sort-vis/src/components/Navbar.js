@@ -23,7 +23,7 @@ export class Navbar extends Component {
               className="collapse navbar-collapse justify-content-center"
               id="navbarNav"
             >
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="/">
                 <h1 className="brand">{name}</h1>
               </a>
             </div>

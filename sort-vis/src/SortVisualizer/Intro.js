@@ -4,7 +4,7 @@ export class Intro extends Component {
   render() {
     return (
       <div className="intro">
-        <h1 className="justify-content-center heading">Sorting Algorithms</h1>
+        <h1>Sorting Algorithms</h1>
         <p className="para">
           Sorting algorithms are used to sort a data structure according to a
           specific order relationship, such as numerical order or

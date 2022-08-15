@@ -99,6 +99,7 @@
 .intro {
   color: rgb(18, 32, 81);
   padding: 50px;
+  text-align: left;
 }
 
 .categories {
@@ -112,4 +113,20 @@
 
 .heading {
   padding-bottom: 1rem;
+}
+
+.sliders {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+.stats-info {
+  color: rgb(35, 219, 194);
+  font-family: monospace;
+  font-size: larger;
 }
