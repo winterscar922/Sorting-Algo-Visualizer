@@ -3,7 +3,9 @@ function swap(items, leftIndex, rightIndex) {
   items[leftIndex] = items[rightIndex];
   items[rightIndex] = temp;
 }
+
 var IndextoSwap = [];
+IndextoSwap.length = 0;
 function partition(items, left, right) {
   var pivot = items[Math.floor((right + left) / 2)], //middle element
     i = left, //left pointer
@@ -15,9 +17,11 @@ function partition(items, left, right) {
     while (items[j] > pivot) {
       j--;
     }
+    IndextoSwap.push([i, j, 2]);
+
     if (i <= j) {
       swap(items, i, j); //sawpping two elements
-      IndextoSwap.push([i, j]);
+      IndextoSwap.push([i, j, 1]);
       i++;
       j--;
     }

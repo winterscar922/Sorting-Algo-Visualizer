@@ -7,6 +7,10 @@ import * as quicksort from "../SortingAlgorithms/QuickSort.js";
 import Intro from "./Intro.js";
 import Visualizer from "./Visualizer.js";
 
+// constants
+var SIZE = 30;
+var ANIMATION_SPEED = 250;
+
 export default class SortVisualizer extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +21,9 @@ export default class SortVisualizer extends Component {
       intro: true,
       time: 0,
       swaps: 0,
-      size: 30,
+      mode: 0,
+      comp: 0,
+      sorting: false,
     };
   }
 
@@ -31,10 +37,47 @@ export default class SortVisualizer extends Component {
   }
 
   mergesort() {
-    const ret = mergesort.mergesort(this.state.array);
-    this.setState({
-      array: ret,
-    });
+    let another_dup = this.state.array;
+    const TIME = Date.now();
+    const swaparr = mergesort.mergeSort([...another_dup]);
+    let temp_arr = another_dup;
+    for (let i = 0; i < swaparr.length; i++) {
+      let pair = swaparr[i];
+      setTimeout(() => {
+        const dup = temp_arr;
+        if (pair[2] == 1) {
+          [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            swaps: this.state.swaps + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        } else if (pair[2] == 2) {
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            comp: this.state.comp + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        }
+        temp_arr = dup;
+      }, i * ANIMATION_SPEED);
+    }
+    setTimeout(() => {
+      this.setState({
+        left: -1,
+        right: -1,
+        time: Date.now() - TIME,
+        sorting: false,
+      });
+    }, swaparr.length * ANIMATION_SPEED);
   }
 
   bubblesort() {
@@ -47,24 +90,39 @@ export default class SortVisualizer extends Component {
       let pair = swaparr[i];
       setTimeout(() => {
         const dup = temp_arr;
-        [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
-        this.setState({
-          array: dup,
-          left: pair[0],
-          right: pair[1],
-          swaps: this.state.swaps + 1,
-          time: Date.now() - TIME,
-        });
+        if (pair[2] == 1) {
+          [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            swaps: this.state.swaps + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        } else if (pair[2] == 2) {
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            comp: this.state.comp + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        }
         temp_arr = dup;
-      }, i * 300);
+      }, i * ANIMATION_SPEED);
     }
     setTimeout(() => {
       this.setState({
         left: -1,
         right: -1,
         time: Date.now() - TIME,
+        sorting: false,
       });
-    }, swaparr.length * 300);
+    }, swaparr.length * ANIMATION_SPEED);
   }
 
   selectionsort() {
@@ -77,24 +135,39 @@ export default class SortVisualizer extends Component {
       let pair = swaparr[i];
       setTimeout(() => {
         const dup = temp_arr;
-        [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
-        this.setState({
-          array: dup,
-          left: pair[0],
-          right: pair[1],
-          swaps: this.state.swaps + 1,
-          time: Date.now() - TIME,
-        });
+        if (pair[2] == 1) {
+          [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            swaps: this.state.swaps + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        } else if (pair[2] == 2) {
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            comp: this.state.comp + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        }
         temp_arr = dup;
-      }, i * 150);
+      }, i * ANIMATION_SPEED);
     }
     setTimeout(() => {
       this.setState({
         left: -1,
         right: -1,
         time: Date.now() - TIME,
+        sorting: false,
       });
-    }, swaparr.length * 150);
+    }, swaparr.length * ANIMATION_SPEED);
   }
 
   quicksort() {
@@ -108,43 +181,61 @@ export default class SortVisualizer extends Component {
       let pair = swaparr[i];
       setTimeout(() => {
         const dup = temp_arr;
-        [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
-        this.setState({
-          array: dup,
-          left: pair[0],
-          right: pair[1],
-          swaps: this.state.swaps + 1,
-          time: Date.now() - TIME,
-        });
+        if (pair[2] == 1) {
+          [dup[pair[0]], dup[pair[1]]] = [dup[pair[1]], dup[pair[0]]];
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            swaps: this.state.swaps + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        } else if (pair[2] == 2) {
+          this.setState({
+            array: dup,
+            left: pair[0],
+            right: pair[1],
+            comp: this.state.comp + 1,
+            time: Date.now() - TIME,
+            mode: pair[2],
+            sorting: true,
+          });
+        }
         temp_arr = dup;
-      }, i * 150);
+      }, i * ANIMATION_SPEED);
     }
     setTimeout(() => {
       this.setState({
         left: -1,
         right: -1,
         time: Date.now() - TIME,
+        sorting: false,
       });
-    }, swaparr.length * 150);
+    }, swaparr.length * ANIMATION_SPEED);
   }
 
   reset() {
     const array = [];
-    const min = 10;
-    const max = 200;
-    for (let i = 0; i < this.state.size; ++i) {
+    var min = 10;
+    var max = 200;
+    for (let i = 0; i < SIZE; ++i) {
       array.push(this.getrandom(min, max));
     }
+    array.push(max);
     this.setState({
       array,
       intro: false,
       time: 0,
       swaps: 0,
+      mode: 0,
+      comp: 0,
+      sorting: false,
     });
   }
 
   render() {
-    console.log(this.state.intro);
     return (
       <div>
         <div className="container-fluid">
@@ -152,20 +243,26 @@ export default class SortVisualizer extends Component {
             <div className="sliders">
               <div>
                 <p className="stats-info">
-                  Speed : <input type="range" max="100" />
+                  Speed :{" "}
+                  <input
+                    type="range"
+                    min={1000}
+                    max={100}
+                    onChange={(ele) => {
+                      ANIMATION_SPEED = parseInt(ele.target.value);
+                    }}
+                  />
                 </p>
               </div>
               <div>
                 <p className="stats-info">
-                  Size :
+                  Size :{" "}
                   <input
                     type="range"
-                    min="1"
-                    max="40"
+                    min={1}
+                    max={40}
                     onChange={(ele) => {
-                      this.setState({
-                        size: parseInt(ele.target.value),
-                      });
+                      SIZE = parseInt(ele.target.value);
                       this.reset();
                     }}
                   />
@@ -173,33 +270,38 @@ export default class SortVisualizer extends Component {
               </div>
             </div>
           )}
-          <div className="d-flex justify-content-evenly pt-3">
+          <div className="justify-content-evenly pt-3">
             <button
               className="btn btns fifth text-light"
+              disabled={this.state.sorting}
               onClick={() => this.reset()}
             >
               reset
             </button>
             <button
-              className="btn  btns fifth text-light"
+              className="btn btns fifth text-light"
+              disabled={this.state.sorting}
               onClick={() => this.mergesort()}
             >
               Merge sort
             </button>
             <button
-              className="btn  btns fifth text-light"
+              className="btn btns fifth text-light "
+              disabled={this.state.sorting}
               onClick={() => this.bubblesort()}
             >
-              Bubble sort
+              Bubble Sort
             </button>
             <button
-              className="btn  btns fifth text-light"
+              className="btn  btns fifth text-light "
+              disabled={this.state.sorting}
               onClick={() => this.selectionsort()}
             >
               Selection sort
             </button>
             <button
-              className="btn  btns fifth text-light"
+              className="btn  btns fifth text-light "
+              disabled={this.state.sorting}
               onClick={() => this.quicksort()}
             >
               Quick sort
@@ -210,13 +312,14 @@ export default class SortVisualizer extends Component {
           {!this.state.intro && (
             <div className="stats">
               <p className="stats-info">
-                Array length = {this.state.array.length}
+                Array length = {this.state.array.length - 1}
               </p>
               <span className="stats-info">|</span>
               <p className="stats-info">Time = {this.state.time} Ms</p>
               <span className="stats-info">|</span>
-
               <p className="stats-info">Swaps = {this.state.swaps}</p>
+              <span className="stats-info">|</span>
+              <p className="stats-info">Comparisions = {this.state.comp}</p>
             </div>
           )}
 

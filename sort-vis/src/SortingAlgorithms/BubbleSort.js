@@ -10,11 +10,12 @@ export const bubbleSort = (arr) => {
     isSwapped = false;
 
     for (j = 0; j < len - i - 1; j++) {
+      IndextoSwap.push([j, j + 1, 2]);
       if (dummy_arr[j] > dummy_arr[j + 1]) {
         var temp = dummy_arr[j];
         dummy_arr[j] = dummy_arr[j + 1];
         dummy_arr[j + 1] = temp;
-        IndextoSwap.push([j, j + 1]);
+        IndextoSwap.push([j, j + 1, 1]);
         isSwapped = true;
       }
     }
@@ -22,7 +23,5 @@ export const bubbleSort = (arr) => {
       break;
     }
   }
-  console.log(arr);
-  console.log(IndextoSwap);
   return IndextoSwap;
 };

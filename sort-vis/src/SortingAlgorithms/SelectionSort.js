@@ -12,7 +12,9 @@ export const SelectionSort = (input) => {
     var tempVal = input[i];
     input[i] = temp;
     input[index] = tempVal;
-    if (index != i) IndextoSwap.push([i, index]);
+    IndextoSwap.push([i, index, 2]);
+
+    if (index != i) IndextoSwap.push([i, index, 1]);
   }
   return IndextoSwap;
 };

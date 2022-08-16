@@ -1,30 +1,43 @@
-export const mergesort = (array) => {
-  if (array.length < 2) return array;
-  const middle = Math.floor(array.length / 2);
-  const array_l = array.slice(0, middle);
-  const array_r = array.slice(middle, array.length);
-  const sorted_l = mergesort(array_l);
-  const sorted_r = mergesort(array_r);
+function nextGap(gap) {
+  if (gap <= 1) return 0;
+  return Math.floor(Math.ceil(gap / 2.0));
+}
+var IndextoSwap = [];
 
-  const sortedarr = [];
+function swap(nums, i, j) {
+  let temp = nums[i];
+  nums[i] = nums[j];
+  nums[j] = temp;
+}
 
-  let i = 0,
-    j = 0;
-
-  while (i < sorted_l.length && j < sorted_r.length) {
-    if (sorted_l[i] < sorted_r[j]) {
-      sortedarr.push(sorted_l[i++]);
-    } else {
-      sortedarr.push(sorted_r[j++]);
+function inPlaceMerge(nums, start, end) {
+  let gap = end - start + 1;
+  for (gap = nextGap(gap); gap > 0; gap = nextGap(gap)) {
+    for (let i = start; i + gap <= end; i++) {
+      let j = i + gap;
+      IndextoSwap.push([i, j, 2]);
+      if (nums[i] > nums[j]) {
+        swap(nums, i, j);
+        IndextoSwap.push([i, j, 1]);
+      }
     }
   }
+}
 
-  while (i < sorted_l.length) {
-    sortedarr.push(sorted_l[i++]);
-  }
+function rec(nums, s, e) {
+  if (s == e) return [];
 
-  while (j < sorted_r.length) {
-    sortedarr.push(sorted_r[j++]);
-  }
-  return sortedarr;
+  let mid = Math.floor((s + e) / 2);
+
+  rec(nums, s, mid);
+  rec(nums, mid + 1, e);
+  inPlaceMerge(nums, s, e);
+}
+
+export const mergeSort = (arr) => {
+  IndextoSwap.length = 0;
+  let len = arr.length;
+  let nums = arr;
+  rec(nums, 0, len - 1);
+  return IndextoSwap;
 };

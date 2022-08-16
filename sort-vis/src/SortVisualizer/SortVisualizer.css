@@ -13,7 +13,16 @@
   margin-right: 1px;
   width: 4vh;
   box-sizing: border-box;
-  /* transition: 0.1s; */
+  transition: 0.4s;
+}
+.graph {
+  display: inline-block;
+  margin-left: 1px;
+  margin-right: 1px;
+  box-sizing: border-box;
+  transition: 0.4s;
+  width: 1px;
+  background-color: #393e46;
 }
 
 .buttons {
@@ -123,10 +132,10 @@
 .stats {
   display: flex;
   justify-content: space-evenly;
-  padding: 2rem;
+  padding: 1rem;
 }
 .stats-info {
   color: rgb(35, 219, 194);
   font-family: monospace;
-  font-size: larger;
+  font-size: 2vh;
 }
