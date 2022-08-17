@@ -249,7 +249,7 @@ export default class SortVisualizer extends Component {
                     min="100"
                     max="1000"
                     className="slides"
-                    id="slide-width"
+                    id="slide-width1"
                     disabled={this.state.sorting}
                     onChange={(ele) => {
                       ANIMATION_SPEED = parseInt(ele.target.value);
@@ -265,7 +265,7 @@ export default class SortVisualizer extends Component {
                     min={1}
                     max={40}
                     className="slides"
-                    id="slide-width"
+                    id="slide-width2"
                     disabled={this.state.sorting}
                     onChange={(ele) => {
                       SIZE = parseInt(ele.target.value);
@@ -276,7 +276,7 @@ export default class SortVisualizer extends Component {
               </div>
             </div>
           )}
-          <div className="container pt-3 pb-3" id="grid">
+          <div className="pb-3" id="grid">
             <button
               className="btn btns fifth text-light col"
               disabled={this.state.sorting}

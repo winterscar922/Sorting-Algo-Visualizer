@@ -5,17 +5,19 @@ export class Footer extends Component {
   render() {
     return (
       <div id="footer">
-        <footer className="page-footer font-small blue">
-          <div className=" text-dark py-1">
-            <p className="footerinfo">Developed by Sumukha T S</p>
+        <footer className="font-small blue">
+          <p className="footerinfo text-dark">
+            Developed by Sumukha T.S |{" "}
             <a
               href="https://github.com/winterscar922"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="fab fa-github fa-2x"></i>
+              <span>
+                <u>Github</u>
+              </span>
             </a>
-          </div>
+          </p>
         </footer>
       </div>
     );
