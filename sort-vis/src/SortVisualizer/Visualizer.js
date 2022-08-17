@@ -15,7 +15,7 @@ export class Visualizer extends Component {
                 style={{
                   height: `${value}px`,
                   // "#502064"
-                  backgroundColor: "#393e46",
+                  backgroundColor: "#222831",
                 }}
               ></div>
             );
@@ -44,7 +44,7 @@ export class Visualizer extends Component {
                   style={{
                     height: `${value}px`,
                     // "#502064"
-                    backgroundColor: "#502064",
+                    backgroundColor: "#00D7FF",
                     boxSizing: "border-box",
                     // border: "2px solid #0078AA",
                     borderRight: "5px solid  #F7ECDE",
@@ -60,7 +60,7 @@ export class Visualizer extends Component {
                 style={{
                   height: `${value}px`,
                   // "#00EAD3"
-                  backgroundColor: "#00EAD3",
+                  backgroundColor: "#37E2D5",
                   boxSizing: "border-box",
                   // border: "2px solid #0078AA",
                   borderRight: "5px solid  #F7ECDE",

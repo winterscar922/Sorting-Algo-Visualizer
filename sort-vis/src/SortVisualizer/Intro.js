@@ -21,7 +21,7 @@ export class Intro extends Component {
           to two metrics: space complexity and time complexity.
         </p>
         <p className="para">
-          Those two kinds of complexity are represented with
+          Those two kinds of complexity are represented with{" "}
           <a href="https://www.programiz.com/dsa/asymptotic-notations#:~:text=Asymptotic%20notations%20are%20the%20mathematical,linear%20i.e.%20the%20best%20case.">
             asymptotic notations
           </a>

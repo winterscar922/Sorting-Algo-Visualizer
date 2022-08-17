@@ -241,26 +241,32 @@ export default class SortVisualizer extends Component {
         <div className="container-fluid">
           {!this.state.intro && (
             <div className="sliders">
-              <div>
-                <p className="stats-info">
+              <div className="slidecontainer">
+                <p className="stats-info" id="statinfo">
                   Speed :{" "}
                   <input
                     type="range"
-                    min={1000}
-                    max={100}
+                    min="100"
+                    max="1000"
+                    className="slides"
+                    id="slide-width"
+                    disabled={this.state.sorting}
                     onChange={(ele) => {
                       ANIMATION_SPEED = parseInt(ele.target.value);
                     }}
                   />
                 </p>
               </div>
-              <div>
-                <p className="stats-info">
+              <div className="slidecontainer">
+                <p className="stats-info" id="statinfo">
                   Size :{" "}
                   <input
                     type="range"
                     min={1}
                     max={40}
+                    className="slides"
+                    id="slide-width"
+                    disabled={this.state.sorting}
                     onChange={(ele) => {
                       SIZE = parseInt(ele.target.value);
                       this.reset();
@@ -270,23 +276,23 @@ export default class SortVisualizer extends Component {
               </div>
             </div>
           )}
-          <div className="justify-content-evenly pt-3">
+          <div className="container pt-3 pb-3" id="grid">
             <button
-              className="btn btns fifth text-light"
+              className="btn btns fifth text-light col"
               disabled={this.state.sorting}
               onClick={() => this.reset()}
             >
               reset
             </button>
             <button
-              className="btn btns fifth text-light"
+              className="btn btns fifth text-light col"
               disabled={this.state.sorting}
               onClick={() => this.mergesort()}
             >
               Merge sort
             </button>
             <button
-              className="btn btns fifth text-light "
+              className="btn btns fifth text-light col "
               disabled={this.state.sorting}
               onClick={() => this.bubblesort()}
             >
@@ -309,19 +315,6 @@ export default class SortVisualizer extends Component {
           </div>
 
           {/* slider */}
-          {!this.state.intro && (
-            <div className="stats">
-              <p className="stats-info">
-                Array length = {this.state.array.length - 1}
-              </p>
-              <span className="stats-info">|</span>
-              <p className="stats-info">Time = {this.state.time} Ms</p>
-              <span className="stats-info">|</span>
-              <p className="stats-info">Swaps = {this.state.swaps}</p>
-              <span className="stats-info">|</span>
-              <p className="stats-info">Comparisions = {this.state.comp}</p>
-            </div>
-          )}
 
           {this.state.intro && (
             <div className="container" style={{ display: "contents" }}>
@@ -329,7 +322,36 @@ export default class SortVisualizer extends Component {
             </div>
           )}
           {!this.state.intro && (
-            <div className="container" style={{ display: "contents" }}>
+            <div
+              id="div-center"
+              style={{ display: "contents" }}
+              className="container"
+            >
+              {!this.state.intro && (
+                <div className="stats">
+                  <p className="stats-info" id="statinfo">
+                    Array length = {this.state.array.length - 1}
+                  </p>
+                  <span className="stats-info" id="statinfo">
+                    |
+                  </span>
+                  <p className="stats-info" id="statinfo">
+                    Time = {this.state.time} Ms
+                  </p>
+                  <span className="stats-info" id="statinfo">
+                    |
+                  </span>
+                  <p className="stats-info" id="statinfo">
+                    Swaps = {this.state.swaps}
+                  </p>
+                  <span className="stats-info" id="statinfo">
+                    |
+                  </span>
+                  <p className="stats-info" id="statinfo">
+                    Comparisions = {this.state.comp}
+                  </p>
+                </div>
+              )}
               <Visualizer
                 array={this.state.array}
                 left={this.state.left}

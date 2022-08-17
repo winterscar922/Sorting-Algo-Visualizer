@@ -3,6 +3,7 @@ import "./App.css";
 import SortVisualizer from "./SortVisualizer/SortVisualizer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Navbar></Navbar>
       </BrowserRouter>
       <SortVisualizer></SortVisualizer>
+      <Footer></Footer>
     </div>
   );
 }
